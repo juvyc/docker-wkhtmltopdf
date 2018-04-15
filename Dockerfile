@@ -21,6 +21,9 @@ RUN apt-get update && \
       graphicsmagick git libjpeg-dev poppler-utils && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb \
-    && dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb \
-    && rm wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
+    && tar -xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
+    && cd wkhtmltox/bin \
+    && sudo mv wkhtmltopdf  /usr/bin/wkhtmltopdf \
+    && sudo mv wkhtmltoimage  /usr/bin/wkhtmltoimage \
+    && sudo apt-get install libxrender1
