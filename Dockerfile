@@ -1,7 +1,7 @@
 FROM ubuntu:14.04.2
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV UBUNTU_VERSION 14.04.4
+ENV UBUNTU_VERSION 14.04.2
 
 RUN apt-get update && \
     apt-get --yes upgrade && \
