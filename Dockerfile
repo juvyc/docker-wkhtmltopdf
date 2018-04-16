@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.4
+FROM ubuntu:14.04.2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV UBUNTU_VERSION 14.04.4
@@ -21,9 +21,6 @@ RUN apt-get update && \
       graphicsmagick git libjpeg-dev poppler-utils && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
-    && tar -xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
-    && cd wkhtmltox/bin \
-    && sudo mv wkhtmltopdf  /usr/bin/wkhtmltopdf \
-    && sudo mv wkhtmltoimage  /usr/bin/wkhtmltoimage \
-    && sudo apt-get install libxrender1
+RUN wget https://bitbucket.org/wkhtmltopdf/wkhtmltopdf/downloads/wkhtmltox-0.13.0-alpha-7b36694_linux-trusty-amd64.deb \
+    && dpkg -i wkhtmltox-0.13.0-alpha-7b36694_linux-trusty-amd64.deb \
+    && rm wkhtmltox-0.13.0-alpha-7b36694_linux-trusty-amd64.deb
